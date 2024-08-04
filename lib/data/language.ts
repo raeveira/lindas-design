@@ -11,6 +11,7 @@ export const english = {
 		},
 		subtitle:
 			'There are currently no images available; please check again later.',
+		loading: 'Loading...',
 	},
 	about_me: {
 		p1: 'Hey nice that you visit my website.',
@@ -97,7 +98,6 @@ export const english = {
 			title: ``,
 		},
 	},
-	
 };
 
 export const dutch = {
@@ -113,6 +113,7 @@ export const dutch = {
 		},
 		subtitle:
 			'Er zijn momenteel geen afbeeldingen beschikbaar; probeer het later opnieuw.',
+		loading: 'Laden...',
 	},
 	about_me: {
 		p1: 'Hey wat leuk dat je mijn website bezoekt.',
@@ -176,31 +177,31 @@ export const dutch = {
                     #Linda\'s Design wanneer wij gaan trouwen mag je zeker ook mijn trouwjurk maken 🥰❤️`,
 		},
 		r2: {
-			title: `Ik heb hier mijn galajurk laten maken echt super mooi en goed afgewerkt, ze luistert naar uw wensen en het een gezellige vrouw.`
+			title: `Ik heb hier mijn galajurk laten maken echt super mooi en goed afgewerkt, ze luistert naar uw wensen en het een gezellige vrouw.`,
 		},
 		r3: {
-			title: `Hier heb ik mijn trouwjurk laten vermaken tot een communiejurk voor mijn dochter. Wij zijn waanzinnig tevreden! Foto komt laten wanneer de communie heeft plaats gevonden.`
+			title: `Hier heb ik mijn trouwjurk laten vermaken tot een communiejurk voor mijn dochter. Wij zijn waanzinnig tevreden! Foto komt laten wanneer de communie heeft plaats gevonden.`,
 		},
 		r4: {
-			title: `Het was even zweten of de vetersluiting van mijn trouwjurk zou lukken. Maar Linda heeft hier echt alle tijd en moeite in gestoken! Ik dank haar hier ook vele malen voor. Linda\'s design is een echt aanrader!`
+			title: `Het was even zweten of de vetersluiting van mijn trouwjurk zou lukken. Maar Linda heeft hier echt alle tijd en moeite in gestoken! Ik dank haar hier ook vele malen voor. Linda\'s design is een echt aanrader!`,
 		},
 		r5: {
-			title: `Wij zochten vorig jaar iemand die de trouwjurk van onze dochter kon en wilde vermaken voor haar dochter\'s comunnie via via kwamen we bij linda\'s design terecht en wouw wat een vakvrouw echt iemand die weet wat ze doet en wat zijn we blij met het resultaad helaas kan ik er nog geen foto bij zetten die volgt later ivm nog een beetje geheim te houden tot de dag zelf....linda super bedankt top vrouw😘😘😘`
+			title: `Wij zochten vorig jaar iemand die de trouwjurk van onze dochter kon en wilde vermaken voor haar dochter\'s comunnie via via kwamen we bij linda\'s design terecht en wouw wat een vakvrouw echt iemand die weet wat ze doet en wat zijn we blij met het resultaad helaas kan ik er nog geen foto bij zetten die volgt later ivm nog een beetje geheim te houden tot de dag zelf....linda super bedankt top vrouw😘😘😘`,
 		},
 		r6: {
-			title: `Hele mooie korte bolero met kant gemaakt voor mij en prachtige blauwe steentjes in de top en sleep gemaakt, daarnaast heb je mij de jurk bij de buste nog ingenomen en mijn bh in de jurk verwerkt helemaal geweldig was er echt super blij mee.`
+			title: `Hele mooie korte bolero met kant gemaakt voor mij en prachtige blauwe steentjes in de top en sleep gemaakt, daarnaast heb je mij de jurk bij de buste nog ingenomen en mijn bh in de jurk verwerkt helemaal geweldig was er echt super blij mee.`,
 		},
 		r7: {
-			title: `Heel mooi gemaakt, past als gegoten. Als ik ooit een bruidsjurk nodig heb laat ik die door Linda maken.`
+			title: `Heel mooi gemaakt, past als gegoten. Als ik ooit een bruidsjurk nodig heb laat ik die door Linda maken.`,
 		},
 		r8: {
-			title: `Bij Linda, Een communie jurk laten maken, Super blij mee!!`
+			title: `Bij Linda, Een communie jurk laten maken, Super blij mee!!`,
 		},
 		r9: {
-			title: `Bij Linda, n cape en corset laten maken. Helemaal blij mee.`
+			title: `Bij Linda, n cape en corset laten maken. Helemaal blij mee.`,
 		},
 		r10: {
-			title: ``
+			title: ``,
 		},
 	},
 };
