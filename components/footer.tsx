@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
                 ))}
             </div>
             <div>
-                <p>© 2024 Linda&apos;s Design</p>
+                <p>© 2024 Linda&apos;s Design | Crafted by <Link href={'mailto:info@raeveira.nl'} className='!underline'>Dylan</Link></p>
             </div>
         </footer>
     );
