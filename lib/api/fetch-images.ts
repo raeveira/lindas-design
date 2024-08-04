@@ -30,14 +30,11 @@ async function getAllImagesFromFolder(folderPath: string, rootDir: string): Prom
         for (const file of files) {
             const filePath = path.join(folderPath, file);
 
-            // Check if the file is an image (you can add more image extensions)
             if (/\.(jpg|jpeg|png|gif)$/i.test(file)) {
-                // Calculate relative path from rootDir to filePath
                 const relativePath = path.relative(path.join(rootDir, 'public'), filePath).replace(/\\/g, '/');
                 images.push(`/${relativePath}`);
             }
 
-            // If the file is a directory, recursively search for images
             if (fs.statSync(filePath).isDirectory()) {
                 const nestedImages = await getAllImagesFromFolder(filePath, rootDir);
                 images.push(...nestedImages);
