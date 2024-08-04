@@ -96,7 +96,7 @@ export const english = {
 		},
 		r10: {
 			title: ``,
-		},
+		}
 	},
 };
 
@@ -202,7 +202,7 @@ export const dutch = {
 		},
 		r10: {
 			title: ``,
-		},
+		}
 	},
 };
 

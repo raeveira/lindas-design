@@ -5,7 +5,6 @@ import Image from 'next/image';
 interface CardProps {
     name: string;
     content: string;
-    date: string;
     stars: number;
     images?: { src: string }[];
 }
