@@ -6,7 +6,18 @@ const DynamicSlideshow = dynamic(() => import('@/components/slideshow'), {
 });
 
 const ThreeSlideshows = () => {
-    const slideshows = [
+    let slideshows: { images: string[] }[] = [];
+
+    if (window.innerWidth < 640) slideshows = [
+        { images: ['/slideshow/slide1_1.jpg', '/slideshow/slide1_2.jpg'] }
+    ];
+
+    if (window.innerWidth < 1024) slideshows = [
+        { images: ['/slideshow/slide1_1.jpg', '/slideshow/slide1_2.jpg'] },
+        { images: ['/slideshow/slide2_1.jpg', '/slideshow/slide2_2.jpg'] }
+    ];
+
+    if (window.innerWidth >= 1024) slideshows = [
         { images: ['/slideshow/slide1_1.jpg', '/slideshow/slide1_2.jpg'] },
         { images: ['/slideshow/slide2_1.jpg', '/slideshow/slide2_2.jpg'] },
         { images: ['/slideshow/slide3_1.jpg', '/slideshow/slide3_2.jpg'] },
