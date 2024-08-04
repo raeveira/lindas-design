@@ -5,7 +5,7 @@ import Showcase from '@/components/showcase';
 const communionPage = () => {
 
     return (
-        <Showcase category="lingerie" title={4} />
+        <Showcase category="lingerie" title={'4'} />
     );
 }
 
