@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
 const DynamicSlideshow = dynamic(() => import('@/components/slideshow'), {
@@ -6,26 +6,32 @@ const DynamicSlideshow = dynamic(() => import('@/components/slideshow'), {
 });
 
 const ThreeSlideshows = () => {
-    if (typeof window === 'undefined') {
-        return null;
-    }
+    const [slideshows, setSlideshows] = useState<{ images: string[] }[]>([]);
 
-    let slideshows: { images: string[] }[] = [];
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            let newSlideshows = [];
 
-    if (window.innerWidth < 640) slideshows = [
-        { images: ['/slideshow/slide1_1.jpg', '/slideshow/slide1_2.jpg'] }
-    ];
+            if (window.innerWidth < 640) {
+                newSlideshows = [
+                    { images: ['/slideshow/slide1_1.jpg', '/slideshow/slide1_2.jpg'] }
+                ];
+            } else if (window.innerWidth < 1024) {
+                newSlideshows = [
+                    { images: ['/slideshow/slide1_1.jpg', '/slideshow/slide1_2.jpg'] },
+                    { images: ['/slideshow/slide2_1.jpg', '/slideshow/slide2_2.jpg'] }
+                ];
+            } else {
+                newSlideshows = [
+                    { images: ['/slideshow/slide1_1.jpg', '/slideshow/slide1_2.jpg'] },
+                    { images: ['/slideshow/slide2_1.jpg', '/slideshow/slide2_2.jpg'] },
+                    { images: ['/slideshow/slide3_1.jpg', '/slideshow/slide3_2.jpg'] }
+                ];
+            }
 
-    if (window.innerWidth < 1024) slideshows = [
-        { images: ['/slideshow/slide1_1.jpg', '/slideshow/slide1_2.jpg'] },
-        { images: ['/slideshow/slide2_1.jpg', '/slideshow/slide2_2.jpg'] }
-    ];
-
-    if (window.innerWidth >= 1024) slideshows = [
-        { images: ['/slideshow/slide1_1.jpg', '/slideshow/slide1_2.jpg'] },
-        { images: ['/slideshow/slide2_1.jpg', '/slideshow/slide2_2.jpg'] },
-        { images: ['/slideshow/slide3_1.jpg', '/slideshow/slide3_2.jpg'] },
-    ];
+            setSlideshows(newSlideshows);
+        }
+    }, []);
 
     return (
         <div className="flex space-x-4 w-full h-full max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4">
