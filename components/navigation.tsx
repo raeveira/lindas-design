@@ -32,8 +32,8 @@ const Navigation: React.FC = () => {
     const [languageName, setLanguageName] = React.useState('dutch');
 
     React.useEffect(() => {
-        const storedLanguage = localStorage.getItem('language') === 'dutch' ? language.dutch : language.english;
-        setLanguageName(localStorage.getItem('language') === 'dutch' ? 'dutch' : 'english');
+        const storedLanguage = localStorage.getItem('language') === 'english' ? language.english : language.dutch;
+        setLanguageName(localStorage.getItem('language') === 'english' ? 'english' : 'dutch');
         setLanguageData(storedLanguage);
     }, []);
 
