@@ -1,7 +1,5 @@
 import React from 'react';
 import { Star, StarHalf } from 'lucide-react';
-import { formatDistanceToNow } from 'date-fns';
-import { nl, enUS } from 'date-fns/locale';
 import Image from 'next/image';
 
 interface CardProps {
@@ -13,16 +11,11 @@ interface CardProps {
     locale: 'nl' | 'enUS';
 }
 
-type Locale = typeof nl | typeof enUS | undefined;
 
-const ReviewCard: React.FC<CardProps> = ({ name, content, date, image, stars, locale }) => {
+const ReviewCard: React.FC<CardProps> = ({ name, content, image, stars }) => {
     const fullStars = Math.floor(stars);
     const hasHalfStar = stars % 1 !== 0;
     const starFill = stars - fullStars;
-    const formattedLocale: Locale = locale === 'nl' ? nl : enUS;
-
-    const parsedDate = new Date(date);
-    const formattedDate = formatDistanceToNow(parsedDate, { locale: formattedLocale, addSuffix: true });
 
     return (
         <div className="container border-solid border-2 w-full m-2 p-3 flex flex-col space-y-3">
@@ -34,8 +27,7 @@ const ReviewCard: React.FC<CardProps> = ({ name, content, date, image, stars, lo
                 <p>{content}</p>
             </div>
             <div className='text-xs flex'>
-                <p className='w-1/2'>{formattedDate}</p>
-                <div className='flex w-1/2 justify-end'>
+                <div className='flex w-full justify-end'>
                     {Array.from({ length: fullStars }, (_, index) => (
                         <Star key={`star-full-${index}`} size={18} fill="#FFD700" />
                     ))}
