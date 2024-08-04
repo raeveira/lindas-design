@@ -6,6 +6,10 @@ const DynamicSlideshow = dynamic(() => import('@/components/slideshow'), {
 });
 
 const ThreeSlideshows = () => {
+    if (typeof window === 'undefined') {
+        return null;
+    }
+
     let slideshows: { images: string[] }[] = [];
 
     if (window.innerWidth < 640) slideshows = [

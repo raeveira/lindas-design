@@ -1,16 +1,20 @@
 import * as React from 'react';
-import { Suspense } from 'react';
 import { fetchImages } from '@/lib/api/fetch-images';
 import { language } from '@/lib/data/language';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { openDB } from 'idb';
 
-const dbPromise = openDB('image-cache', 1, {
-    upgrade(db) {
-        db.createObjectStore('images');
-    },
-});
+const getDbPromise = () => {
+    if (typeof window === 'undefined') {
+        return Promise.resolve(null);
+    }
+    return openDB('image-cache', 1, {
+        upgrade(db) {
+            db.createObjectStore('images');
+        },
+    });
+};
 
 const Showcase = ({ category, title }: { category: string; title: string }) => {
     const [images, setImages] = React.useState<string[]>([]);
@@ -28,19 +32,22 @@ const Showcase = ({ category, title }: { category: string; title: string }) => {
     React.useEffect(() => {
         setLoading(true);
         const getImages = async () => {
-            const cachedImages = await getCachedImages(category);
-            if (cachedImages) {
-                setImages(cachedImages);
-                setLoading(false);
-            } else {
-                try {
-                    const data = await fetchImages({ category });
-                    const watermarkedImages = await Promise.all(data.map(image => addTextWatermark(image)));
-                    setImages(watermarkedImages);
+            const db = await getDbPromise();
+            if (db) {
+                const cachedImages = await db.get('images', category);
+                if (cachedImages) {
+                    setImages(cachedImages);
                     setLoading(false);
-                    await cacheImages(category, watermarkedImages);
-                } catch (error) {
-                    console.error('Error fetching or processing images:', error);
+                } else {
+                    try {
+                        const data = await fetchImages({ category });
+                        const watermarkedImages = await Promise.all(data.map(image => addTextWatermark(image)));
+                        setImages(watermarkedImages);
+                        setLoading(false);
+                        await db.put('images', watermarkedImages, category);
+                    } catch (error) {
+                        console.error('Error fetching or processing images:', error);
+                    }
                 }
             }
         };
@@ -48,17 +55,11 @@ const Showcase = ({ category, title }: { category: string; title: string }) => {
         getImages();
     }, [category]);
 
-    const getCachedImages = async (category: string) => {
-        const db = await dbPromise;
-        return (await db.get('images', category)) as string[] | undefined;
-    };
-
-    const cacheImages = async (category: string, images: string[]) => {
-        const db = await dbPromise;
-        await db.put('images', images, category);
-    };
-
     const addTextWatermark = async (imageUrl: string) => {
+        if (typeof window === 'undefined') {
+            return imageUrl;
+        }
+
         return new Promise<string>((resolve, reject) => {
             const img = new window.Image();
             img.crossOrigin = 'Anonymous';

@@ -2,6 +2,7 @@ import React from 'react';
 import { Star, StarHalf } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { nl, enUS } from 'date-fns/locale';
+import Image from 'next/image';
 
 interface CardProps {
     name: string;
@@ -26,7 +27,7 @@ const ReviewCard: React.FC<CardProps> = ({ name, content, date, image, stars, lo
     return (
         <div className="container border-solid border-2 w-full m-2 p-3 flex flex-col space-y-3">
             <div className="mr-3 flex space-x-2">
-                <img src={image} alt={`profile photo of ${name}`} height={25} width={25} className='rounded-full h-[25px] w-[25px] object-cover' />
+                <Image src={image} alt={`profile photo of ${name}`} height={25} width={25} className='rounded-full h-[25px] w-[25px] object-cover' />
                 <h3 className='font-semibold'>{name}</h3>
             </div>
             <div className="flex-1">
