@@ -126,7 +126,7 @@ const Showcase = ({ category, title }: { category: string; title: string }) => {
 
     return (
         <div className="p-3 flex flex-1 flex-col items-center space-y-10">
-            <h1 className="text-left w-full font-bold text-2xl capitalize">{languageTitle}</h1>
+            <h1 className="text-center w-full font-bold text-2xl capitalize">{languageTitle}</h1>
             {showModal && (
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 flex items-center justify-center z-10 !mt-0">
                     <div className="relative">
