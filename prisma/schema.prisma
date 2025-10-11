@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Category {
+  communie
+  gala
+  mode
+  lingerie
+  slideshow
+}
+
+model Photo {
+  id               String   @id @default(cuid())
+  description      String
+  url              String
+  category         Category
+  websiteId        String
+  carouselPosition Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  website Website @relation(fields: [websiteId], references: [id])
+}
+
+model Website {
+  id          String       @id @default(cuid())
+  language    String       @unique @default("NL-nl")
+  photos      Photo[]
+  navigations Navigation[]
+  about       About?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Navigation {
+  id        String @id @default(cuid())
+  name      String
+  link      String
+  websiteId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  website Website @relation(fields: [websiteId], references: [id])
+}
+
+model About {
+  id        String @id @default(cuid())
+  content   String
+  imageUrl  String
+  websiteId String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  website Website @relation(fields: [websiteId], references: [id])
+}
