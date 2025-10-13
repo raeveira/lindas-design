@@ -34,8 +34,6 @@ const PortfolioPage = () => {
         return <div>Loading...</div>;
     }
 
-    const categories = Array.from(new Set(websiteData.photos.map(photo => photo.category))).filter(Boolean).slice(0, 4);
-
     // Sort categories by position in portfolioCategory
     const tabCategories = websiteData.portfolioCategory.sort((a, b) => a.position - b.position);
 
@@ -70,7 +68,7 @@ const PortfolioPage = () => {
                             ))}
                         </TabsList>
 
-                        {tabCategories.map(({ category, name}) => (
+                        {tabCategories.map(({ category }) => (
                             <TabsContent key={category} value={category} className={'max-h-[75vh] overflow-y-auto'}>
                                 <div
                                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
