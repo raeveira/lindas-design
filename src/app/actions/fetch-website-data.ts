@@ -49,6 +49,7 @@ export async function fetchWebsiteData({language}: { language: string }): Promis
             where: {language: language},
             select: {
                 id: true,
+                portfolioCategory: true,
                 language: true,
                 photos: true,
                 navigations: true,

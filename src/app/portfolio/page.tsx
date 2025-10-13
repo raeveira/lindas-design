@@ -37,6 +37,9 @@ const PortfolioPage = () => {
 
     const categories = Array.from(new Set(websiteData.photos.map(photo => photo.category))).filter(Boolean).slice(0, 4);
 
+    // Sort categories by position in portfolioCategory
+    const tabCategories = websiteData.portfolioCategory.sort((a, b) => a.position - b.position);
+
     const getPhotosByCategory = (category: string) => {
         const categoryPhotos = websiteData.photos.filter(photo => photo.category === category);
 
@@ -57,18 +60,18 @@ const PortfolioPage = () => {
                 <div className={'w-full h-full flex flex-col justify-center items-center m-4 mt-24'}>
                     <Tabs defaultValue={categories[0]} className="w-8/9 h-full flex flex-col items-center">
                         <TabsList className="flex justify-center space-x-4">
-                            {categories.map(category => (
+                            {tabCategories.map(({category, name}) => (
                                 <TabsTrigger
                                     key={category}
                                     value={category}
                                     className={"text-sm sm:text-base md:text-lg lg:text-xl px-3 sm:px-4 md:px-6 lg:px-8 py-1 sm:py-2 transition-transform duration-200 hover:scale-105 hover:cursor-pointer font-normal"}
                                 >
-                                    {category}
+                                    {name}
                                 </TabsTrigger>
                             ))}
                         </TabsList>
 
-                        {categories.map((category) => (
+                        {tabCategories.map(({ category, name}) => (
                             <TabsContent key={category} value={category} className={'max-h-[75vh] overflow-y-auto'}>
                                 <div
                                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">

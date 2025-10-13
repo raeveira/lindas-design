@@ -37,14 +37,28 @@ model Photo {
 }
 
 model Website {
-  id          String       @id @default(cuid())
-  language    String       @unique @default("NL-nl")
-  photos      Photo[]
-  navigations Navigation[]
-  about       About?
+  id                String              @id @default(cuid())
+  language          String              @unique @default("NL-nl")
+  photos            Photo[]
+  portfolioCategory PortfolioCategory[]
+  navigations       Navigation[]
+  about             About?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model PortfolioCategory {
+  id        String   @id @default(cuid())
+  name      String
+  category  Category @default(mode)
+  position  Int      @default(0)
+  websiteId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  website Website @relation(fields: [websiteId], references: [id])
 }
 
 model Navigation {
