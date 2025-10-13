@@ -19,7 +19,6 @@ export default function Home() {
             }
 
             if (data) {
-                console.log('Fetched website data:', data);
                 setWebsiteData(data);
             }
         };
@@ -33,8 +32,6 @@ export default function Home() {
 
     // Filter carousel photos
     const carouselPhotos = websiteData.photos.filter(photo => photo.category == 'slideshow');
-
-    console.log(carouselPhotos);
 
     // Split photos into groups of 2 for each carousel based on carouselPosition
     const firstCarouselPhotos = carouselPhotos.filter(photo => [0, 1].includes(photo.carouselPosition ?? -1))

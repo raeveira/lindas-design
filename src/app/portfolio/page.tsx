@@ -23,7 +23,6 @@ const PortfolioPage = () => {
             }
 
             if (data) {
-                console.log('Fetched website data:', data);
                 setWebsiteData(data);
             }
         };
@@ -58,7 +57,7 @@ const PortfolioPage = () => {
 
             <main className="flex h-screen w-screen flex-col items-center justify-between overflow-hidden">
                 <div className={'w-full h-full flex flex-col justify-center items-center m-4 mt-24'}>
-                    <Tabs defaultValue={categories[0]} className="w-8/9 h-full flex flex-col items-center">
+                    <Tabs defaultValue={tabCategories[0].category} className="w-8/9 h-full flex flex-col items-center">
                         <TabsList className="flex justify-center space-x-4">
                             {tabCategories.map(({category, name}) => (
                                 <TabsTrigger

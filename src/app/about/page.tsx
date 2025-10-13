@@ -19,7 +19,6 @@ const AboutPage = () => {
             }
 
             if (data) {
-                console.log('Fetched website data:', data);
                 setWebsiteData(data);
             }
         };
