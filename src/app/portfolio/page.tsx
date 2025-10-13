@@ -38,7 +38,11 @@ const PortfolioPage = () => {
     const categories = Array.from(new Set(websiteData.photos.map(photo => photo.category))).filter(Boolean).slice(0, 4);
 
     const getPhotosByCategory = (category: string) => {
-        return websiteData.photos.filter(photo => photo.category === category);
+        const categoryPhotos = websiteData.photos.filter(photo => photo.category === category);
+
+        // Sort photo's by url so the images can be changed from position only by changing the url
+        const sortedPhotosByUrl = categoryPhotos.sort((a, b) => a.url.localeCompare(b.url));
+        return sortedPhotosByUrl.sort((a, b) => a.url.localeCompare(b.url));
     }
 
     return (
