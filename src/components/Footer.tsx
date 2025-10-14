@@ -4,7 +4,7 @@ import {FacebookIcon, InstagramIcon, MessageCircle, Phone} from "lucide-react";
 export const Footer = () => {
     return (
         <footer className="w-full text-center text-sm text-gray-500 p-0 sm:p-4 bg-gray-100">
-            <div className={'flex flex-col gap-y-1 items-center justify-around sm:flex-row sm:gap-y-4'}>
+            <div className={'flex flex-row gap-y-1 items-center justify-around sm:gap-y-4'}>
                 {/* Socials */}
                 <div className={'flex flex-row items-center justify-center gap-x-4 scale-50 sm:scale-100'}>
                     <Link href={'https://api.whatsapp.com/send?phone=31628547428&text='} target={'_blank'} rel={'noopener noreferrer'} className={'relative hover:cursor-pointer'}>
