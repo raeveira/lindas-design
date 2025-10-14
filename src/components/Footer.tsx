@@ -3,10 +3,10 @@ import {FacebookIcon, InstagramIcon, MessageCircle, Phone} from "lucide-react";
 
 export const Footer = () => {
     return (
-        <footer className="w-full text-center text-sm text-gray-500 p-4 bg-gray-100 absolute bottom-0">
-            <div className={'flex flex-col gap-y-4 items-center justify-around sm:flex-row'}>
+        <footer className="w-full text-center text-sm text-gray-500 p-0 sm:p-4 bg-gray-100">
+            <div className={'flex flex-col gap-y-1 items-center justify-around sm:flex-row sm:gap-y-4'}>
                 {/* Socials */}
-                <div className={'flex flex-row items-center justify-center gap-x-4'}>
+                <div className={'flex flex-row items-center justify-center gap-x-4 scale-50 sm:scale-100'}>
                     <Link href={'https://api.whatsapp.com/send?phone=31628547428&text='} target={'_blank'} rel={'noopener noreferrer'} className={'relative hover:cursor-pointer'}>
                         <MessageCircle className={"w-6 h-6 text-green-500 hover:text-green-600"} fill={'var(--color-green-500)'} />
                         {/* Inside message circle add a phone icon */}
@@ -21,7 +21,7 @@ export const Footer = () => {
                 </div>
 
                 {/* Copyright + Watermark */}
-                <div>
+                <div className={'flex flex-col items-center justify-center gap-x-4 scale-50 sm:scale-100'}>
                     <p>© {new Date().getFullYear()} Lindas-Design. All rights reserved.</p>
                     <Link href={'mailto:info@raeveira.nl'} className="text-xs text-gray-400">Created by <span className={'font-bold'}>Dylan</span></Link>
                 </div>

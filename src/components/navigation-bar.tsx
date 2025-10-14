@@ -24,7 +24,7 @@ export const NavigationBar = ({navigationData}: { navigationData: Navigation[] }
     return (
         <>
             {/* Desktop Navigation */}
-            <div className="fixed inset-x-0 top-0 z-50 hidden md:flex justify-center items-center bg-white/90 backdrop-blur-sm border-b border-gray-200 p-2">
+            <div className="hidden md:flex justify-center items-center bg-white/90 backdrop-blur-sm border-b border-gray-200 p-2">
                 <NavigationMenu>
                     <NavigationMenuList className="space-x-8 items-center">
                         {navigationData.slice(0, mid).map((nav, idx) => (
@@ -50,7 +50,7 @@ export const NavigationBar = ({navigationData}: { navigationData: Navigation[] }
             </div>
 
             {/* Mobile Top Bar */}
-            <div className="fixed inset-x-0 top-0 z-50 flex md:hidden items-center justify-between bg-white/90 backdrop-blur-sm border-b border-gray-200 p-2">
+            <div className="flex md:hidden items-center justify-between bg-white/90 backdrop-blur-sm border-b border-gray-200 p-2">
                 <Link href="/">
                     <Image src="/logo.png" alt="Logo" width={128} height={128} priority />
                 </Link>

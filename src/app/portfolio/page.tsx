@@ -46,15 +46,15 @@ const PortfolioPage = () => {
     }
 
     return (
-        <>
+        <div className={'flex flex-col h-screen w-screen'}>
             {selectedImageUrl && (
                 <SelectedImage imageUrl={selectedImageUrl} setSelectedImageUrl={setSelectedImageUrl} />
             )}
 
             <NavigationBar navigationData={websiteData.navigations}/>
 
-            <main className="flex h-screen w-screen flex-col items-center justify-between overflow-hidden">
-                <div className={'w-full h-full flex flex-col justify-center items-center m-4 mt-24'}>
+            <main className="flex flex-1 flex-col items-center justify-between overflow-hidden p-2 sm:p-4">
+                <div className={'w-full h-full flex flex-col justify-center items-center'}>
                     <Tabs defaultValue={tabCategories[0].category} className="w-8/9 h-full flex flex-col items-center">
                         <TabsList className="flex justify-center space-x-4">
                             {tabCategories.map(({category, name}) => (
@@ -91,7 +91,7 @@ const PortfolioPage = () => {
             </main>
 
             <Footer/>
-        </>
+        </div>
     );
 }
 

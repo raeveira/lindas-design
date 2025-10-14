@@ -42,11 +42,11 @@ export default function Home() {
         .sort((a, b) => (a.carouselPosition ?? -1) - (b.carouselPosition ?? -1));
 
     return (
-        <>
+        <div className={'flex flex-col h-screen w-screen'}>
             <NavigationBar navigationData={websiteData.navigations}/>
-            <main className="flex max-h-[90vh] h-screen w-screen flex-col items-center justify-between max-sm:mb-4">
+            <main className="flex flex-1 flex-col items-center justify-between p-2 sm:p-4">
 
-                <div className={'w-full h-full flex flex-col justify-center items-center m-4 mt-24 max-sm:mb-8'}>
+                <div className={'w-full h-full flex flex-col justify-center items-center'}>
                     <div className={'flex flex-row justify-around items-center w-8/9 gap-x-8 h-full overflow-hidden'}>
                         <Carousel images={firstCarouselPhotos} delay={0} mobile={true}/>
                         <Carousel images={secondCarouselPhotos} delay={1000}/>
@@ -55,6 +55,6 @@ export default function Home() {
                 </div>
             </main>
             <Footer/>
-        </>
+        </div>
     );
 }

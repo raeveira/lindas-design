@@ -35,13 +35,13 @@ const AboutPage = () => {
     }
 
     return (
-        <>
+        <div className={'flex flex-col h-screen w-screen'}>
             <NavigationBar navigationData={websiteData.navigations}/>
-            <main className="flex max-h-[90vh] h-screen w-screen flex-col items-center justify-between max-sm:mb-4">
+            <main className="flex flex-1 flex-col items-center justify-between p-2 sm:p-4">
 
-                <div className={'w-full h-full flex flex-col justify-center items-center m-4 mt-24 max-sm:mb-8'}>
+                <div className={'w-full h-full flex flex-col justify-center items-center'}>
                     <div
-                        className="w-full max-w-5xl flex flex-col md:flex-row items-center gap-8 max-sm:mb-8 max-sm:max-h-[80vh] max-sm:overflow-y-auto max-sm:overflow-x-hidden h-full p-4"
+                        className="w-full max-w-5xl flex flex-col md:flex-row items-center gap-8 max-sm:max-h-[80vh] max-sm:overflow-y-auto max-sm:overflow-x-hidden h-full"
                     >
                         {/* Image on the left */}
                         <div className="md:w-2/5 w-full h-auto">
@@ -68,7 +68,7 @@ const AboutPage = () => {
                 </div>
             </main>
             <Footer/>
-        </>
+        </div>
     )
 }
 
