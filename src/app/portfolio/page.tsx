@@ -69,17 +69,18 @@ const PortfolioPage = () => {
                         </TabsList>
 
                         {tabCategories.map(({ category }) => (
-                            <TabsContent key={category} value={category} className={'max-h-[75vh] overflow-y-auto'}>
+                            <TabsContent key={category} value={category} className={'max-h-[75vh] lg:max-w-[70vw] overflow-y-auto'}>
                                 <div
                                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
                                     {getPhotosByCategory(category).map((photo) => (
-                                        <div key={photo.id} className="w-full h-128 relative" onClick={() => setSelectedImageUrl(photo.url)}>
+                                        <div key={photo.id} className="w-full h-128 relative hover:cursor-pointer" onClick={() => setSelectedImageUrl(photo.url)}>
                                             <Image
                                                 width={400}
                                                 height={300}
                                                 src={photo.url}
                                                 alt={photo.description ?? 'Portfolio Image'}
                                                 className="w-full h-full object-cover rounded-lg"
+                                                loading={'lazy'}
                                             />
                                         </div>
                                     ))}
